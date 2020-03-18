@@ -1,0 +1,54 @@
+Fitur Tambahan :
++ Pagination via Datatables.
++ Last Login (Time & Ip Record)
+
+
+
+#Deskripsi
+Aplikasi "De Furniture" merupakan sebuah Sistem Informasi Penjualan berbentuk Website yang berpusat pada penjualan barang-barang mebel seperti kursi, meja, lemari dan sebagainya. Pada aplikasi ini pengguna dapat mengelola data barang apa saja yang terdapat pada toko furniture. Kebanyakan penjual toko furnitur kelas menengah kebawah masih mengandalkan dengan tulisan tangan untuk manajemen pada toko. Diharapkan dengan aplikasi ini dapat mempermudah pengguna dalam memanajemen barang.
+
+#Fitur
+Web "De Furniture" -> Penjualan Furniture. 
+
+* Framework
+  - Laravel 7.0
+  - Bootstrap 4.0
+  - Javascript (Jquery, Popper)
+
+* Layouting
+  - Header
+  - Sidebar
+  - User login dan belum login beda page (@auth & @guest)
+
+* Else
+  - Realtime Cuaca Server (Widget Booked.net)
+  - Realtime Waktu, Calendar Lokal 
+  - Fitur Search, Sorting, Exporting (Print, PDF, dll) Database via Datatables
+
+* Autentikasi
+  - Laravel 7 (composer require laravel/ui, php artisan ui bootstrap --auth)
+  - Autentikasi Seluruh Page via Middleware Authenticate
+  - Register, Login, Logout
+  - Encrypt n Decrypt Password
+  - Verifikasi Akun (via smtp mailtrap.io)
+  - Lupa/Reset Password (via smtp mailtrap.io)
+
+* User Management
+  - User Profile & Edit Profile
+  - Add, Delete, Edit, List User
+
+* Product Management
+  - CRUD Kategori barang
+  - CRUD Produk barang
+  - Fungsi Relasi Join Kategori ke Produk (Add barang pilih kategori)
+
+* Order Management
+  - Transaksi Penjualan (Total Harga dan Kembalian)
+  - Manajemen Stok Barang dengan Trigger Database (barang berkurang)
+
+* Reporting
+  - Laporan Transaksi Penjualan
+
+#Problem
+- Mendigitalisasi Sistem Informasi Penjualan serta memberi keamanan dengan adanya penyimpanan data pada server.
+- Memudahkan pengguna khususnya pemilik toko furniture dalam memajamenen barang serta hasil penjualan
