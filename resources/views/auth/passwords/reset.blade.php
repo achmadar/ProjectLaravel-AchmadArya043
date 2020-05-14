@@ -28,7 +28,7 @@
 @endpush
 
 @section('content')
-<div class="container black-cover">
+<div class="container-fluid black-cover">
     <div class="container">
         <div class="row justify-content-center true-center">
             <div class="col-md-8">

@@ -29,7 +29,7 @@
   <div class="content">
     <div class="row">
       <div class="col-md-12">
-		<div class="card">
+		<div class="container card">
 
 			<form action="{{ route('category.update',['id'=>$kategori->id]) }}" method="post">
 

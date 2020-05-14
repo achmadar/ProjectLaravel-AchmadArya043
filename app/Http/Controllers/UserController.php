@@ -53,6 +53,7 @@ class UserController extends Controller
         $message = [
             'required' => ':attribute tidak boleh kosong',
             'min:8' => ':attribute terlalu pendek',
+            'min:3' => ':attribute terlalu pendek',
             'unique' => ':attribute sudah ada di database'
         ];
 
@@ -157,9 +158,9 @@ class UserController extends Controller
         ]);
 
         if ($insert) {
-            return redirect()->route('users.profile')->with('success', 'Berhasil menambah kategori.');
+            return redirect()->route('users.index')->with('success', 'Berhasil menambah kategori.');
         } else {
-            return redirect()->route('users.profile')->with('error', 'Gagal menambah data kategori.');
+            return redirect()->route('users.index')->with('error', 'Gagal menambah data kategori.');
         }
 
     }

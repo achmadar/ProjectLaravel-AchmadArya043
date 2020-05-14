@@ -12,6 +12,18 @@
 
     th{
       text-align: center;
+      background-color: #3a3a3a;
+      border-top: 1px solid #000 !important;
+      border-left: 1px solid #000 !important;
+      border-bottom: 1px solid #000 !important;
+      font-size: 1.3em !important;
+      font-weight: 500 !important;
+      color: #ffffff;
+    }
+
+    td{
+      border-top: 1px solid #000 !important;
+      border-left: 1px solid #000 !important;
     }
 
   </style>
@@ -24,7 +36,7 @@
   <div class="content">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
+        <div class="container card">
           <div class="card-header">
             <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('category.create') }}">Add Category</a>
             <h4 class="card-title">Category Items</h4>
@@ -38,7 +50,7 @@
                   <th style="width: 30px">No.</th>
                   <th>Nama Kategori</th>
                   <th>Status</th>
-                  <th style="width: 125px">Action</th>
+                  <th style="width: 130px; border-right: 1px solid #000">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,7 +62,7 @@
                   </td>
                   <td>{{ $k->nama_kategori }}</td>
                   <td style="text-transform: capitalize; text-align: center;">{{ $k->status }}</td>
-                  <td style="text-align: center;">
+                  <td style="text-align: center; border-right: 1px solid #000">
                       <!-- <a href="#" class="btn btn-info">
                         <i class="fa fa-eye"></i>
                       </a> -->

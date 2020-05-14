@@ -32,7 +32,7 @@ Route::get('/profile/{id}', 'UserController@profile')
 	->name('users.profile');
 
 Route::post('/profile/update/{id}', 'UserController@update_profile')
-	->name('users.update');
+	->name('users.update_profile');
 
 // Routing User Page
 
@@ -103,3 +103,39 @@ Route::post('/products/update/{id}', 'ProductController@update')
 Route::get('/products/delete/{id}', 'ProductController@destroy')
 	->name('products.destroy');
 
+// Routing Order Page
+
+Route::get('/order', 'OrderController@index')
+	->name('order.index');
+
+Route::post('simpan_detail', 'OrderController@simpan_detail')
+	->name('simpan_detail');
+
+Route::post('/order', 'OrderController@store')
+	->name('order.store');
+
+Route::get('/order/delete/{id}', 'OrderController@destroy')
+	->name('order.destroy');
+
+// Routing Report Page
+
+Route::get('/report', 'ReportController@index')
+	->name('report.index');
+
+Route::get('/report/detail/{nomor_pesanan}', 'ReportController@show')
+	->name('report.show');
+
+// Route::get('/products/add', 'ProductController@create')
+// 	->name('products.create');
+
+// Route::post('/products', 'ProductController@store')
+// 	->name('products.store');
+
+// Route::get('/products/edit/{id}', 'ProductController@edit')
+// 	->name('products.edit');
+
+// Route::post('/products/update/{id}', 'ProductController@update')
+// 	->name('products.update');
+
+Route::get('/report/delete/{nomor_pesanan}', 'ReportController@destroy')
+	->name('report.destroy');

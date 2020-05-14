@@ -34,7 +34,7 @@
   <div class="content">
     <div class="row">
       <div class="col-md-12">
-		<div class="card">
+		<div class="container card">
 
 			<form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
 
@@ -61,6 +61,7 @@
                                 <div class="form-group col-md-6 mr-4 ">
                                     <label>Kategori</label>
                                     <select class="form-control @error('id_kategori') is-invalid @enderror" id="id_kategori" name="id_kategori">
+                                        <option value="" disabled="" selected="" hidden="">Pilih Kategori</option>
                                         @foreach ($list_kategori as $kategori)
                                         <option value="{{ $kategori->id }}">
                                             {{ $kategori->nama_kategori }}

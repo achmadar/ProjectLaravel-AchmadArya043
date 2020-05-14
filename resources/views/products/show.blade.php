@@ -73,14 +73,8 @@
                                 </div>
                                 
                                 <div class="col-md-6 mb-1">
-                                    <label for="nama_produk">Nama Kategori</label>
-                                    <select class="form-control" disabled="">
-                                        @foreach ($list_kategori as $kategori)
-                                        <option class="form-control" value="{{ $list_kategori->id }}" selected="">
-                                            {{ $list_kategori->nama_kategori }}
-                                        </option>
-                                        @endforeach
-                                    </select>
+                                    <label for="nama_kategori">Kategori</label>
+                                    <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" readonly="" value="{{ $produk->nama_kategori }}">
                                 </div>
 
                                 <div class="col-md-6 mb-1">
@@ -89,12 +83,12 @@
                                 </div>
 
                                 <div class="col-md-6 mb-1">
-                                    <label for="harga">Jumlah Stok</label>
+                                    <label for="stok">Stok Produk</label>
                                     <input type="text" name="stok" id="stok" class="form-control" readonly="" value="{{ $produk->stok }} buah">
                                 </div>
 
                                 <div class="col-md-6 mb-1">
-                                    <label for="harga">Status Aktif</label>
+                                    <label for="status">Status Produk</label>
                                     @if ($produk->status == 'aktif')
                                         <input class="form-control" id="status" readonly="" name="status" type="text" value="Aktif">
                                     @else
@@ -103,7 +97,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label for="harga">Jumlah Stok</label>
+                                    <label for="deskripsi">Deskripsi</label>
                                     <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" readonly="" style="padding: 0px 10px; height: 200px;">{{ $produk->deskripsi }}</textarea>
                                 </div>
 

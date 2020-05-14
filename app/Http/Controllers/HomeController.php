@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\Order;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data['t_produk'] = Product::count('id');
+        $data['t_stok'] = Product::sum('stok');
+        $data['t_trns'] = Order::count('id');
+        $data['t_hrg'] = Order::sum('total_harga');
+        return view('home', $data);
     }
 
 }

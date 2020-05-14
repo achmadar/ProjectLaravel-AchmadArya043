@@ -34,7 +34,7 @@
   <div class="content">
     <div class="row">
       <div class="col-md-12">
-		<div class="card">
+		<div class="container card">
 
 			<form action="{{ route('products.update',['id'=>$produk->id]) }}" method="post" enctype="multipart/form-data">
 
@@ -61,13 +61,11 @@
                                 <div class="form-group col-md-6 mr-4 ">
                                     <label>Kategori</label>
                                     <select class="form-control @error('id_kategori') is-invalid @enderror" id="id_kategori" name="id_kategori">
-
                                         @foreach ($list_kategori as $kategori)
-                                        <option value="{{ $kategori->id }}" selected="">
+                                        <option value="{{ $kategori->id }}" status="{{ $kategori->status }}">
                                             {{ $kategori->nama_kategori }}
                                         </option>
                                         @endforeach
-
                                     </select>
                                     @error('id_kategori')
                                         <div class="text-danger mt-1">{{ $message }}</div>
@@ -116,7 +114,7 @@
                                         <input type="file" name="photo" id="photo" class="@error('photo') is-invalid @enderror" value="{{ old('photo') }}" >
                                     @else 
                                         <img src="{{ Storage::url( $produk->photo ) }}" alt="{{ Storage::url( $produk->photo ) }}" style="width: 150px; margin-bottom: 10px">
-                                        <input type="file" name="photo" id="photo" class="@error('photo') is-invalid @enderror" value="{{ old('photo') }}" >
+                                        <input type="file" name="photo" id="photo" class="@error('photo') is-invalid @enderror" value="{{ Storage::url( $produk->photo ) }}" >
                                     @endif
                                     
                                     @error('photo')
@@ -155,3 +153,12 @@
   </div>
 
 @endsection
+
+@push('js')
+<script type="text/javascript">
+    var slctd = "{{ $produk->id_kategori }}";
+    $(function() {
+        $('#id_kategori').val(slctd).prop('selected', true);
+    });
+</script>
+@endpush

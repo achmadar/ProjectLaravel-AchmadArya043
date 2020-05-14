@@ -34,9 +34,9 @@
   <div class="content">
     <div class="row">
       <div class="col-md-12">
-		<div class="card">
+		<div class="container card">
 
-			<form action="{{ route('users.update',['id'=>$profile->id]) }}" method="post" enctype="multipart/form-data">
+			<form action="{{ route('users.update_profile',['id'=>$profile->id]) }}" method="post" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
                 
@@ -68,7 +68,7 @@
 
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Sorry we cant show ur password :)" autocomplete="new-password">
+                                    <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" required="" placeholder="Sorry we cant show ur password :)" autocomplete="new-password">
                                     @error('password')
                                         <div class="text-danger mt-1">{{ $message }}</div>
                                     @enderror

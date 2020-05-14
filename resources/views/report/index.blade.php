@@ -1,6 +1,6 @@
 @extends('layouts.app', [
-  'namePage' => 'Users',
-  'activePage' => 'users',
+  'namePage' => 'Transaction Report',
+  'activePage' => 'report',
 ])
 
 @push('css')
@@ -24,6 +24,9 @@
     td{
       border-top: 1px solid #000 !important;
       border-left: 1px solid #000 !important;
+      border-right: 1px solid #000;
+      border-top: 1px solid #000;
+      text-align: center;
     }
 
   </style>
@@ -38,8 +41,8 @@
       <div class="col-md-12">
         <div class="container card">
           <div class="card-header">
-            <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('users.create') }}">Add Users</a>
-            <h4 class="card-title">User List</h4>
+            <!-- <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('products.create') }}">Add Product</a> -->
+            <h4 class="card-title">Transaction List</h4>
             <div class="col-12 mt-2">
             </div>
           </div>
@@ -48,40 +51,31 @@
               <thead>
                 <tr>
                   <th style="width: 30px">No.</th>
-                  <th>Nama User</th>
-                  <th>E-Mail</th>
-                  <th>Verified</th>
-                  <th style="width: 180px; border-right: 1px solid #000">Action</th>
+                  <th>ID Transaksi</th>
+                  <th>Tanggal</th>
+                  <th>Penjual</th>
+                  <th>Pembeli</th>
+                  <th>Total Harga</th>
+                  <th style="width: 120px; border-right: 1px solid #000">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php $no=1; ?>
-                @foreach($users as $u)
+                @foreach($report as $r)
                 <tr>
                   <td style="text-align: center;">
                     {{ $no }}
                   </td>
-                  <td>{{ $u->name }}</td>
-                  <td>{{ $u->email }}</td>
-
-                  @if ( is_null( $u->email_verified_at ) )
-                      <td style="text-align: center;">
-                        Not Verified
-                      </td>
-                  @else 
-                      <td style="text-align: center;">
-                        Verified at <br> {{ $u->email_verified_at }}
-                      </td>
-                  @endif
-
-                  <td style="text-align: center; border-right: 1px solid #000">
-                      <a href="{{ route('users.show', ['id'=>$u->id ]) }}" class="btn btn-info">
+                  <td>{{ $r->nomor_pesanan }}</td>
+                  <td>{{ $r->created_at }}</td>
+                  <td>{{ $r->name }}</td>
+                  <td>{{ $r->pembeli }}</td>
+                  <td>{{ $r->total_harga }}</td>
+                  <td style="border-right: 1px solid #000">
+                      <a href="{{ route('report.show', ['nomor_pesanan'=>$r->nomor_pesanan ]) }}" class="btn btn-info">
                         <i class="fa fa-eye"></i>
                       </a>
-                      <a href="{{ route('users.edit', ['id'=>$u->id ]) }}" class="btn btn-success">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>
-                      <a href="{{ route('users.destroy', ['id'=>$u->id ]) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');">
+                      <a href="{{ route('report.destroy', ['nomor_pesanan'=>$r->nomor_pesanan ]) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');">
                         <i class="fas fa-trash"></i>
                       </a>
                   </td>

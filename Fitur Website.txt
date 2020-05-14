@@ -1,7 +1,12 @@
 Fitur Tambahan :
 + Pagination via Datatables.
++ Validation
 + Last Login (Time & Ip Record)
-
++ Timezone GMT+7 (Asia/Jakarta)
++ Auto Fill ID Tranksaksi (TRC.Carbon(month).maxValue)
++ Softdeletes on Product, Category, Transaction
++ On Dashboard : Total Produk, Jumlah Stok Produk, Transaksi Sukses, Total Penjualan
++ 
 
 
 #Deskripsi

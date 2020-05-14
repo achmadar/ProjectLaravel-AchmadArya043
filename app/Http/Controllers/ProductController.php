@@ -32,7 +32,10 @@ class ProductController extends Controller
                 'tbl_produk.status',
                 'tbl_produk.photo',
                 'tbl_produk.deskripsi'
-            )->get();
+            )
+            ->whereNull('tbl_produk.deleted_at')
+            // ->where("nama_kategori","Kursi")
+            ->get();
         return view('products.index', $data);
     }
 
@@ -56,7 +59,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'nama_produk' => 'required|min:3|unique:tbl_produk,nama_produk'
+            'nama_produk' => 'required|min:3|unique:tbl_produk,nama_produk',
+            'harga' => 'required',
+            'stok' => 'required',
+            'photo' => 'required',
+            'deskripsi' => 'required',
         ];
 
         $message = [
@@ -101,8 +108,19 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $data['list_kategori'] = Category::find($id);
-        $data['produk'] = Product::find($id);
+        $data['produk'] = Category::join('tbl_produk','tbl_produk.id_kategori','tbl_kategori.id')
+            ->select(
+                'tbl_kategori.nama_kategori', 
+                'tbl_produk.id', 
+                'tbl_produk.nama_produk', 
+                'tbl_produk.harga',
+                'tbl_produk.stok',
+                'tbl_produk.status',
+                'tbl_produk.photo',
+                'tbl_produk.deskripsi'
+            )
+            ->where("tbl_produk.id",$id)
+            ->first();
         return view("products.show", $data);
     }
 

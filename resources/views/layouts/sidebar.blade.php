@@ -24,7 +24,7 @@
 
       <li>
         <a data-toggle="collapse" href="#submenu" aria-expanded="false">
-          <i class="fab fa-laravel"></i>
+          <i class="now-ui-icons users_single-02"></i>
           <p>
             {{ __("User Management") }}
             <b class="caret"></b>
@@ -36,7 +36,7 @@
 
             <li class="@if ($activePage == 'profile') active @endif">
               <a href="{{ route('users.profile', ['id'=>Auth::user()->id ]) }}">
-                <i class="now-ui-icons users_single-02"></i>
+                <i class="now-ui-icons business_badge"></i>
                 <p> {{ __("User Profile") }} </p>
               </a>
             </li>
@@ -62,6 +62,20 @@
         <a href="{{ route('products.index') }}">
           <i class="now-ui-icons design_app"></i>
           <p>{{ __('Product List') }}</p>
+        </a>
+      </li>
+
+      <li class="@if ($activePage == 'order') active @endif">
+        <a href="{{ route('order.index') }}">
+          <i class="now-ui-icons shopping_cart-simple"></i>
+          <p>{{ __('Order Management') }}</p>
+        </a>
+      </li>
+
+      <li class="@if ($activePage == 'report') active @endif">
+        <a href="{{ route('report.index') }}">
+          <i class="now-ui-icons files_single-copy-04"></i>
+          <p>{{ __('Transaction Report') }}</p>
         </a>
       </li>
 
